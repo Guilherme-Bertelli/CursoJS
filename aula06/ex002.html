@@ -21,8 +21,19 @@
   <h1>Olá, Mundo!</h1>
   <p>Curso de JavaScript.</p>
   <script>
-    var nome = window.prompt('Qual é o seu nome?')//essa é uma variável
-    window.alert('É um grande prazer te conhecer ,' + nome + "!")
+    var nome = window.prompt('Qual é seu nome?')
+
+    if (nome == Number(nome)) {
+      alert('Identificamos que foi inserido um número. Digite um nome valido!')
+    } else {
+      alert('Olá ' + nome)
+    }
+
+    var n1 = Number(prompt(nome + " Digite um número"))
+    var n2 = Number(prompt("Agora digite outro número"))
+    var resultado = n1 + n2
+
+    window.alert(nome + ", a soma dois dois números é: " + resultado + ".")
   </script>
 </body>
 </html> 
