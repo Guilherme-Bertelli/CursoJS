@@ -23,11 +23,17 @@
   <script>
     var nome = window.prompt('Qual é seu nome?')
 
-    if (nome == Number(nome)) { // Esse IF não fez parte da aula (foi eu quem quis adicionar!)
+    if (nome == Number(nome)) {
       alert('Identificamos que foi inserido um número. Digite um nome valido!')
     } else {
       alert('Olá, ' + nome + "!")
     }
+
+    var n1 = Number(prompt(nome + ", Digite um número!"))
+    var n2 = Number(prompt("Agora digite outro número!"))
+    var soma = n1 + n2
+
+    window.alert(`${nome}, a soma entre ${n1} e ${n2} é: ${soma}!`)
   </script>
 </body>
 </html> 
