@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos em DOM</title>
+    <style>
+        body {
+            padding: 50px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        div {
+            width: 300px;height: 300px;
+            background-color: tomato;
+            color: white;
+            font-size: 2.5em;
+            text-align: center;
+            line-height: 300px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="area">
+        Olha só!
+    </div>
+    
+    <script>
+        var box = document.getElementById('area')
+        box.addEventListener('click', clicar)
+        box.addEventListener('mouseenter', entrar)
+        box.addEventListener("mouseout", sair)
+
+        function clicar() {
+            box.innerText = "CLICOU!" 
+            box.style.background = "blue"
+            box.style.padding = "10px"
+            box.style.transition = "1s"
+            box.style.borderRadius = "50%"
+        }
+
+        function entrar() {
+            box.innerText = "Entrou"
+            box.style.background = "green"
+        }
+
+        function sair() {
+            box.innerText = "Saiu"
+            box.style.background = "tomato"
+            box.style.borderRadius = "0"
+        }
+    </script>
+</body>
+</html>

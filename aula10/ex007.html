@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        body {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando valores</h1>
+
+    <form action="#" method="get">
+        <input type="number" name="txtn1" id="txtn1" placeholder="Número 1"> <span id="operador"></span>
+        <input type="number" name="txtn2" id="txtn2" placeholder="Número 2"><br>
+        
+        <input type="button" value="+" id="op" onclick="adi()">
+        <input type="button" value="-" id="op1" onclick="sub()">
+        <input type="button" value="X" id="op2" onclick="mul()">
+        <input type="button" value="/" id="op3" onclick="div()"><br><br>
+    </form>
+
+    <div id="res">Resultado:</div>
+
+    <script>
+        function adi() {
+            var num1 = document.getElementById('txtn1')
+            var num2 = document.getElementById('txtn2')
+            var r = document.getElementById("res")
+            var n1 = Number(num1.value)
+            var n2 = Number(num2.value)
+
+            var soma = n1 + n2
+            var ope = document.getElementById('operador')
+
+            r.innerHTML = `O valor de ${n1} + ${n2} é: ${soma}`
+            ope.innerHTML = "+"
+        }
+        function sub() {
+            var num1 = document.getElementById('txtn1')
+            var num2 = document.getElementById('txtn2')
+            var r = document.getElementById("res")
+            var n1 = Number(num1.value)
+            var n2 = Number(num2.value)
+
+            var soma = n1 - n2
+            var ope = document.getElementById('operador')
+
+            r.innerHTML = `O valor de ${n1} - ${n2} é: ${soma}`
+            ope.innerHTML = "-"
+        }
+        function mul() {
+            var num1 = document.getElementById('txtn1')
+            var num2 = document.getElementById('txtn2')
+            var r = document.getElementById("res")
+            var n1 = Number(num1.value)
+            var n2 = Number(num2.value)
+
+            var soma = n1 * n2
+            var ope = document.getElementById('operador')
+
+            r.innerHTML = `O valor de ${n1} X ${n2} é: ${soma}`
+            ope.innerHTML = "X"
+        }
+        function div() {
+            var num1 = document.getElementById('txtn1')
+            var num2 = document.getElementById('txtn2')
+            var r = document.getElementById("res")
+            var n1 = Number(num1.value)
+            var n2 = Number(num2.value)
+
+            var soma = n1 / n2
+            var ope = document.getElementById('operador')
+
+            r.innerHTML = `O valor de ${n1} / ${n2} é: ${soma}`
+            ope.innerHTML = "/"
+        }
+    </script>
+</body>
+</html>

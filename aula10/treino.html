@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>treino JS</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.2em;
+        }
+
+        #num1, #num2 {
+            width: 70px;
+        }
+
+        #operadores input {
+            width: 20px;
+        }
+
+        section#operadores {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha um operador:</h1>
+
+    <section id="operadores">
+        <input type="button" value="+" class="oper" onclick="selecionarOperador()"> <!-- adição -->
+        <input type="button" value="-" class="oper" onclick="selecionarOperador()"> <!-- subtração -->
+        <input type="button" value="*" class="oper" onclick="selecionarOperador()"> <!-- multiplicação -->
+        <input type="button" value="/" class="oper" onclick="selecionarOperador()"> <!-- divisão -->
+
+        <input type="text" name="iope" id="ope"> <!-- escolha de operador -->
+    </section>
+
+    <section id="dados">
+        <input type="number" name="inum1" id="num1" placeholder="número 1" >
+        <span id="operador"></span>
+        <input type="number" name="inum2" id="num2" placeholder="número 2">
+        <input type="button" value="Resultado:" onclick="soma()">
+        <p>Resultado:</p>
+    </section>
+    
+    <script>
+            function selecionarOperador() {
+                var operadorSelecionado = ''
+
+                operadorSelecionado = btn
+
+                esco.value = `${vadi}`
+            }
+
+            function sub(){
+                var adi = document.getElementsByClassName("oper")[1]
+                var vadi = adi.value
+                var esco = document.getElementById("ope")
+
+                esco.value = `${vadi}`
+            }
+
+            function div(){
+                var adi = document.getElementsByClassName("oper")[2]
+                var vadi = adi.value
+                var esco = document.getElementById("ope")
+
+                esco.value = `${vadi}`
+            }
+
+            function mul(){
+                var adi = document.getElementsByClassName("oper")[3]
+                var vadi = adi.value
+                var esco = document.getElementById("ope")
+
+                esco.value = `${vadi}`
+            }
+    </script>
+</body>
+</html>

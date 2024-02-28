@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>País</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.1em;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: black;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.504);
+            color: #d9d9d9;
+            font-weight: bold;
+            margin-bottom: 30px;
+            margin-left: 10px;
+        }
+
+        input#pais {
+            margin-bottom: 30px;
+        }
+
+        #brasileiro, #estrangeiro {
+            padding: 5px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        section#esq p {
+            padding: 5px;
+            margin: 0;
+            text-align: right;
+        }
+
+        @media screen and (max-width: 400px) {
+            body {
+                font-size: .7em;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            main {
+                width: 70vw;
+                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+            }
+
+            section#dir {
+                display: flex;
+                flex-direction: column;
+            }
+
+            button {
+                background-color: black;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.504);
+                color: #d9d9d9;
+                font-weight: bold;
+                margin-bottom: 30px;
+
+                align-self: flex-start;
+            }
+
+            input#pais {
+                margin-bottom: 0;
+            }
+
+            #brasileiro, #estrangeiro {
+                width: 70px;
+                padding: 5px;
+                padding-left: 10px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+            section#esq p {
+                padding: 5px;
+                margin: 0;
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Brasileiro ou estrangeiro? Veja!</h1>
+
+    <main>
+        <section id="esq">
+            Qual o país? <input type="text" name="pais" id="pais">
+            <p id="txtB"></p>
+            <p id="txtE"></p>
+        </section>
+        <section id="dir">
+            <button type="button" id="resultado" onclick="resultado()">Resultado</button>
+            <div id="brasileiro">Brasileiro</div>
+            <div id="estrangeiro">Estrangeiro</div>
+        </section>
+    </main>
+
+    <script>
+        function resultado() {
+            var pais = document.querySelector('input#pais')
+            var paisEscolha = pais.value
+            var resultado = document.querySelector('button#resultado')
+            var corB = document.querySelector('div#brasileiro')
+            var corE = document.querySelector('div#estrangeiro')
+            var txtBr = document.querySelector('p#txtB')
+            var txtEs = document.querySelector('p#txtE')
+
+            if (paisEscolha == "Brasil") { // Condicional composta para Brasileiro
+                corB.style.background = "rgba(0, 128, 0, 0.700)"
+                corB.style.boxShadow = "2px 7px 8px rgba(0, 128, 0, 0.700), -3px -3px 8px rgba(0, 128, 0, 0.700)"
+                corB.style.margin = "15px"
+                corB.style.transition = ".5s"
+
+                txtBr.innerHTML = "Então você é: "
+                txtBr.style.margin = "15px"
+                txtBr.style.transition = ".5s"
+            } else {
+                corB.style.background = "none"
+                corB.style.boxShadow = "none"
+                corB.style.margin = "0"
+                corB.style.transition = ".5s"
+
+                txtBr.innerHTML = ""
+                txtBr.style.margin = "0"
+                txtBr.style.transition = ".5s"
+            }
+
+            if (paisEscolha != "Brasil" && paisEscolha != "") { // Condicional aninhada para Estrangeiro
+                corE.style.background = "rgba(0, 0, 255, 0.500)"
+                corE.style.boxShadow = "2px 7px 8px rgba(0, 0, 255, 0.500), -3px -3px 8px rgba(0, 0, 255, 0.500)"
+                corE.style.margin = "15px"
+                corE.style.transition = ".5s"
+
+                txtEs.innerHTML = "Então você é: "
+                txtEs.style.margin = "35px"
+                txtEs.style.transition = ".5s"
+            } else {
+                if (paisEscolha == "Brasil" || paisEscolha == "") {
+                corE.style.background = "none"
+                corE.style.boxShadow = "none"
+                corE.style.margin = "0"
+                corE.style.transition = ".5s"
+
+                txtEs.innerHTML = ""
+                txtEs.style.margin = "0"
+                txtEs.style.transition = ".5s"
+                }
+            }
+        }
+    </script>
+</body>
+</html>
