@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+    <style>
+        * {
+            margin: 0;padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;height: 100vh;
+            background-color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        main#conteudoPrincipal {
+            width: 60vw;height: 40vh;
+            box-shadow: 3px 3px 10px black;
+            border-radius: 15px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        section#secImagem {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            width: 250px;height: 250px;
+            border-radius: 50%;
+            background-color: #d9d9d9;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        section#formulario {
+            width: 100%;
+            margin-top: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+        }
+
+        section input#idade {
+            margin-left: 10px;
+        }
+
+        fieldset#sexo {
+            width: 200px;
+            margin-top: 30px;
+            border: 0;
+
+            display: flex;
+        }
+
+        fieldset#sexo p {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        fieldset#sexo input, label {
+            margin-left: 10px;
+        }
+
+        fieldset#nascimento {
+            border: 0;
+        }
+
+        section button#verificar {
+            width: 60px;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+
+        section p#seNao {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de idade</h1>
+
+    <main id="conteudoPrincipal">
+        <section action="#" id="formulario" method="get">
+            <fieldset id="nascimento">
+                <label for="idade">Ano de nascimento:</label>
+                <input type="number" name="idade" id="idade">
+            </fieldset>
+            <fieldset id="sexo">
+                <p>Sexo:</p>
+                <input type="radio" name="sexo" id="mas" value="masculino">
+                <label for="mas">Masculino</label><!-- Masculino -->
+                <input type="radio" name="sexo" id="fem" value="feminino">
+                <label for="fem">Feminino</label><!-- Feminino -->
+            </fieldset>
+            <button type="button" id="verificar">Verificar</button>
+            <p id="seNao"></p>
+        </section>
+
+        <section id="secImagem">
+            
+        </section>
+
+        <script>
+            var botao = document.querySelector('button#verificar').addEventListener('click', verificar)
+
+            function verificar() {
+                var semDados = document.querySelector('p#seNao')
+                var ano = document.querySelector('input#idade')
+                var anoNascimento = Number(ano.value)
+                var idade = 2024 - anoNascimento
+                var sexo = document.querySelector('input[name="sexo"]:checked').value
+                var imagem = document.querySelector('section#secImagem')
+                var blocoPrincipal = document.querySelector('main#conteudoPrincipal')
+
+                switch(sexo) {
+                    case "masculino":
+                        if(idade <= 14) { // Estrutura para homens
+                            imagem.style.display = "flex"
+                            blocoPrincipal.style.height = "70vh"
+                            imagem.style.backgroundImage = "url('imagens/menino.jpg')"
+                            imagem.style.transition = ".2s"
+                        }  
+                        
+                        if(idade > 14 && idade < 45) {
+                            imagem.style.display = "flex"
+                            blocoPrincipal.style.height = "70vh"
+                            imagem.style.backgroundImage = "url('imagens/h-jovem.jpg')"
+                            imagem.style.transition = ".2s"
+                        } 
+                        if(idade > 45) {
+                            imagem.style.display = "flex"
+                            blocoPrincipal.style.height = "70vh"
+                            imagem.style.backgroundImage = "url('imagens/idoso.jpg')"
+                            imagem.style.transition = ".2s"
+                        } // Estrutura para homens acaba aqui
+                    break    
+                    case "feminino":
+                        if(idade <= 14) { // Estrutura para mulheres
+                            imagem.style.display = "flex"
+                            blocoPrincipal.style.height = "70vh"
+                            imagem.style.backgroundImage = "url('imagens/menina.jpg')"
+                            imagem.style.transition = ".2s"
+                        }  
+                        if(idade > 14 && idade < 45) {
+                            imagem.style.display = "flex"
+                            blocoPrincipal.style.height = "70vh"
+                            imagem.style.backgroundImage = "url('imagens/m-jovem.jpg')"
+                            imagem.style.transition = ".2s"
+                        } 
+                        if(idade > 45) {
+                            imagem.style.display = "flex"
+                            blocoPrincipal.style.height = "70vh"
+                            imagem.style.backgroundImage = "url('imagens/idosa.jpg')"
+                            imagem.style.transition = ".2s"
+                        } // Estrutura para mulheres acaba aqui
+                    break    
+                }
+            }
+
+            // Estrutura para homens:
+                // if(sexo.length == 9 && idade <= 14) { 
+                //     imagem.style.display = "flex"
+                //     blocoPrincipal.style.height = "70vh"
+                //     imagem.style.backgroundImage = "url('imagens/menino.jpg')"
+                // } else if (sexo.length == 8) {
+                //     imagem.style.display = "none"
+                //     blocoPrincipal.style.height = "40vh"
+                //     imagem.style.backgroundImage = ""
+                // } else if(sexo.length == 9 && (idade > 14 && idade < 45)) {
+                //     imagem.style.display = "flex"
+                //     blocoPrincipal.style.height = "70vh"
+                //     imagem.style.backgroundImage = "url('imagens/h-jovem.jpg')"
+                // } else if (sexo.length == 8) {
+                //     imagem.style.display = "none"
+                //     blocoPrincipal.style.height = "40vh"
+                //     imagem.style.backgroundImage = ""
+                // } else if(sexo.length == 9 && idade > 45) {
+                //     imagem.style.display = "flex"
+                //     blocoPrincipal.style.height = "70vh"
+                //     imagem.style.backgroundImage = "url('imagens/idoso.jpg')"
+                // } else if (sexo.length == 8) {
+                //     imagem.style.display = "none"
+                //     blocoPrincipal.style.height = "40vh"
+                //     imagem.style.backgroundImage = ""
+                // }
+                // // Estrutura para homens acaba aqui
+
+                // // Estrutura para mulheres
+                // if(sexo.length == 8 && idade <= 14) {
+                //     imagem.style.display = "flex"
+                //     blocoPrincipal.style.height = "70vh"
+                //     imagem.style.backgroundImage = "url('imagens/menina.jpg')"
+                // } else if (sexo.length == 9) {
+                //     imagem.style.display = "none"
+                //     blocoPrincipal.style.height = "40vh"
+                //     imagem.style.backgroundImage = ""
+                // } else if(sexo.length == 8 && (idade > 14 && idade < 45)) {
+                //     imagem.style.display = "flex"
+                //     blocoPrincipal.style.height = "70vh"
+                //     imagem.style.backgroundImage = "url('imagens/m-jovem.jpg')"
+                // } else if (sexo.length == 9) {
+                //     imagem.style.display = "none"
+                //     blocoPrincipal.style.height = "40vh"
+                //     imagem.style.backgroundImage = ""
+                // } else if(sexo.length == 8 && idade > 45) {
+                //     imagem.style.display = "flex"
+                //     blocoPrincipal.style.height = "70vh"
+                //     imagem.style.backgroundImage = "url('imagens/idosa.jpg')"
+                // } else if (sexo.length == 9) {
+                //     imagem.style.display = "none"
+                //     blocoPrincipal.style.height = "40vh"
+                //     imagem.style.backgroundImage = ""
+                // }
+                // // Estrutura para mulheres acaba aqui
+        </script>
+    </main>
+</body>
+</html>
