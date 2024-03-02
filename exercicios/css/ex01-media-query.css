@@ -1,0 +1,121 @@
+@media screen and (min-width: 700px) {
+
+* {
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;height: 100vh;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: black;
+    font-size: 2.3em;
+    margin-bottom: 20px;
+}
+
+main#conteudoPrincipal {
+    width: 60vw;height: 40vh;
+    background-color: rgba(0, 0, 0, 0.772);
+    color: white;
+    box-shadow: 3px 3px 10px black;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+section#secImagem {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;height: 200px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section#formulario {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+
+fieldset#nascimento {
+    border: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#nascimento input#idade {
+    margin-left: 10px;
+    width: 60px;
+    height: 17px;
+
+    align-self: center;
+}
+
+fieldset#sexo {
+    width: 100%;
+    margin-top: 30px;
+    border: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+fieldset#sexo p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+fieldset#sexo input, label {
+    margin-left: 10px;
+}
+
+fieldset#sexo div#op {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+fieldset#sexo div#opM, div#opF {
+    display: flex;
+    flex-direction: row;
+}
+
+section button#verificar {
+    width: 60px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+section p#seNao {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+}

@@ -4,188 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idade</title>
-    <style>
-        * {
-            margin: 0;padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            width: 100vw;height: 100vh;
-            background-color: #fff;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1.2em;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        main#conteudoPrincipal {
-            width: 60vw;height: 40vh;
-            box-shadow: 3px 3px 10px black;
-            border-radius: 15px;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            
-        }
-
-        section#secImagem {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            width: 250px;height: 250px;
-            border-radius: 50%;
-            background-color: #d9d9d9;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        section#formulario {
-            width: 100%;
-            margin-top: 30px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-        }
-
-        section input#idade {
-            margin-left: 10px;
-        }
-
-        fieldset#sexo {
-            width: 200px;
-            margin-top: 30px;
-            border: 0;
-
-            display: flex;
-        }
-
-        fieldset#sexo p {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        fieldset#sexo input, label {
-            margin-left: 10px;
-        }
-
-        fieldset#nascimento {
-            border: 0;
-        }
-
-        section button#verificar {
-            width: 60px;
-            margin-left: 10px;
-            margin-top: 20px;
-        }
-
-        section p#seNao {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="css/ex01.css">
+    <link rel="stylesheet" media="screen" href="css/ex01-media-query.css">
 </head>
 <body>
     <h1>Verificador de idade</h1>
 
+    <header>
+        <nav>
+            
+        </nav>
+    </header>
     <main id="conteudoPrincipal">
         <section action="#" id="formulario" method="get">
             <fieldset id="nascimento">
-                <label for="idade">Ano de nascimento:</label>
-                <input type="number" name="idade" id="idade">
+                <div>
+                    <label for="idade">Ano de nascimento:</label>
+                    <input type="number" name="idade" id="idade">
+                </div>
+                <div id="corFundo">
+                    <label for="bgCor"></label>
+                    <input type="button" value="branco" name="bgCori" id="bgCor" onclick="cor()">
+                </div>
             </fieldset>
             <fieldset id="sexo">
                 <p>Sexo:</p>
-                <input type="radio" name="sexo" id="mas" value="masculino">
-                <label for="mas">Masculino</label><!-- Masculino -->
-                <input type="radio" name="sexo" id="fem" value="feminino">
-                <label for="fem">Feminino</label><!-- Feminino -->
+                <div id="op">
+                    <div id="opM">
+                        <input type="radio" name="sexo" id="mas" value="homem">
+                        <label for="mas">Masculino</label><!-- Masculino -->
+                    </div>
+                    <div id="opF">
+                        <input type="radio" name="sexo" id="fem" value="mulher">
+                        <label for="fem">Feminino</label><!-- Feminino -->
+                    </div>
+                </div>
             </fieldset>
             <button type="button" id="verificar">Verificar</button>
             <p id="seNao"></p>
         </section>
 
-        <section id="secImagem">  
+        <section id="secImagem"> 
+             <!--Aqui vem a imagem  -->
         </section>
 
         <script>
-            var botao = document.querySelector('button#verificar').addEventListener('click', verificar)
-            
+            var verificar = document.querySelector('button#verificar').addEventListener('click', verificar)//Cria um evento de clique no botão
 
             function verificar() {
-                var semDados = document.querySelector('p#seNao')
-                var ano = document.querySelector('input#idade')
-                var anoNascimento = Number(ano.value)
-                var idade = 2024 - anoNascimento
-                var sexo = document.querySelector('input[name="sexo"]:checked')
-                var sexoV = sexo.value
-                var imagem = document.querySelector('section#secImagem')
-                var blocoPrincipal = document.querySelector
+                var textoP = document.querySelector('p#seNao')// Texto do parágrafo
+                var ano = document.querySelector('input#idade')// Idade
+                var anoEscolhido = Number(ano.value)
+                var idade = 2024 - anoEscolhido
+                var sexoMouF = document.querySelector('input[name="sexo"]:checked')// Sexo
+                var sexos = sexoMouF.value
+                var imagem = document.querySelector('section#secImagem')// Imagem
+                var blocoPrincipal = document.querySelector //Main
                 ('main#conteudoPrincipal')
 
-                semDados.innerHTML = `Você tem ${idade} anos!`
-
-                switch(sexoV) {
-                    case "masculino":
-                        if(idade <= 14) { // Estrutura para homens
+                switch(sexos) { 
+                    // Caso HOMEM
+                    case "homem":
+                        if(idade <= 14 && idade >= 1) { // Se tiver de 1 a 14 anos carrega a imagem da criança
                             imagem.style.display = "flex"
                             blocoPrincipal.style.height = "70vh"
                             imagem.style.backgroundImage = "url('imagens/menino.jpg')"
                             imagem.style.transition = ".2s"
                         }      
-                        if(idade > 14 && idade < 45) {
+                        if(idade > 14 && idade < 45) { // Se tiver de 15 a 45 anos carrega a imagem de um jovem
                             imagem.style.display = "flex"
                             blocoPrincipal.style.height = "70vh"
                             imagem.style.backgroundImage = "url('imagens/h-jovem.jpg')"
                             imagem.style.transition = ".2s"
                         } 
-                        if(idade > 45) {
+                        if(idade > 45) { // Se tiver de 45 a 120 anos carrega a imagem de um idoso
                             imagem.style.display = "flex"
                             blocoPrincipal.style.height = "70vh"
                             imagem.style.backgroundImage = "url('imagens/idoso.jpg')"
                             imagem.style.transition = ".2s"
-                        } // Estrutura para homens acaba aqui
-                        if(idade == 2024) {
-                            semDados.innerHTML = "Coloque o seu ano de nascimento!"
+                        } 
+
+                        if(idade < 120 && idade > 1) { // Se tiver de 1 a 120 anos carrega a mensagem da linha de baixo
+                            textoP.innerHTML = `Detectamos que é ${sexos} com ${idade} anos`
+                        } else { // Se não tiver de 1 a 120 carrega um alert pedindo para verificar os dados
+                            imagem.style.display = "none"
+                            blocoPrincipal.style.height = "40vh"
+                            imagem.style.backgroundImage = "url('')"
+                            imagem.style.transition = ".2s"
+                            window.alert("Verifique os dados e tente novamente")
+                            textoP.innerHTML = ``
                         }
                         break
-                    case "feminino":
-                        if(idade <= 14) { // Estrutura para mulheres
+                    // Caso HOMEM acaba aqui    
+
+                    // Caso MULHER
+                    case "mulher":
+                        if(idade <= 14 && idade >= 1) { // Se tiver de 1 a 14 anos carrega a imagem da criança
                             imagem.style.display = "flex"
                             blocoPrincipal.style.height = "70vh"
                             imagem.style.backgroundImage = "url('imagens/menina.jpg')"
                             imagem.style.transition = ".2s"
                         }  
-                        if(idade > 14 && idade < 45) {
+                        if(idade > 14 && idade < 45) { // Se tiver de 15 a 45 anos carrega a imagem de uma jovem
                             imagem.style.display = "flex"
                             blocoPrincipal.style.height = "70vh"
                             imagem.style.backgroundImage = "url('imagens/m-jovem.jpg')"
                             imagem.style.transition = ".2s"
                         } 
-                        if(idade > 45) {
+                        if(idade > 45) { // Se tiver de 45 a 120 anos carrega a imagem de uma idosa
                             imagem.style.display = "flex"
                             blocoPrincipal.style.height = "70vh"
                             imagem.style.backgroundImage = "url('imagens/idosa.jpg')"
                             imagem.style.transition = ".2s"
                         }
-                        if(idade == 2024) {
-                            semDados.innerHTML = "Coloque o seu ano de nascimento!"
+                        if(idade < 120 && idade > 1) { // Se tiver de 1 a 120 anos carrega a mensagem da linha de baixo
+                            textoP.innerHTML = `Detectamos que é ${sexos} com ${idade} anos`
+                        } else { // Se não tiver de 1 a 120 carrega um alert pedindo para verificar os dados
+                            imagem.style.display = "none"
+                            blocoPrincipal.style.height = "40vh"
+                            imagem.style.backgroundImage = "url('')"
+                            imagem.style.transition = ".2s"
+                            window.alert("Verifique os dados e tente novamente")
+                            textoP.innerHTML = ``
                         }
                         break 
+                    // Caso MULHER acaba aqui    
                 }
             }
         </script>
