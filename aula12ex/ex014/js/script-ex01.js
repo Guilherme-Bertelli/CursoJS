@@ -1,10 +1,10 @@
-var verificar = document.querySelector('button#verificar').addEventListener('click', verificar)//Cria um evento de clique no botão
-
 function verificar() {
     var textoP = document.querySelector('p#seNao')// Texto do parágrafo
+    var data = new Date() // Ano atual
+    var anoAtual = data.getFullYear()
     var ano = document.querySelector('input#idade')// Idade
     var anoEscolhido = Number(ano.value)
-    var idade = 2024 - anoEscolhido
+    var idade = anoAtual - anoEscolhido
     var sexoMouF = document.querySelector('input[name="sexo"]:checked')// Sexo
     var sexos = sexoMouF.value
     var imagem = document.querySelector('section#secImagem')// Imagem
