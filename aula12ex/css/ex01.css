@@ -7,7 +7,8 @@
 
 body {
     width: 100vw;height: 100vh;
-    background-color: white;
+    background-color: lightblue;
+    color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
 
@@ -18,15 +19,14 @@ body {
 }
 
 h1 {
-    color: black;
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 
 main#conteudoPrincipal {
     width: 340px;height: 70vh;
-    background-color: rgba(0, 0, 0, 0.772);
-    color: white;
+    background-color: #fff;
+    color: black;
     box-shadow: 3px 3px 10px black;
     border-radius: 15px;
 
@@ -68,24 +68,14 @@ fieldset#nascimento {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-div#corFundo {
-    display: flex;
-
-    margin-right: 10px;
-}
-
-#corFundo input {
-    align-self: center;
-    margin-left: 3px;
 }
 
 #nascimento input#idade {
     margin-left: 10px;
     width: 60px;
     height: 17px;
+
+    align-self: center;
 }
 
 
@@ -129,4 +119,8 @@ section p#seNao {
     margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
+}
+footer {
+    padding-top: 20px;
+    font-weight: bold;
 }
