@@ -4,41 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idade</title>
-    <link rel="stylesheet" href="css/ex01.css">
-    <link rel="stylesheet" media="screen" href="css/ex01-media-query.css">
+    <link rel="stylesheet" href="css/ex02.css">
+    <link rel="stylesheet" media="screen" href="css/ex02-media-query.css">
 </head>
-<body>
-    <h1>Verificador de idade</h1>
+<body onload="carregar()">
+    <h1>Hora do dia</h1>
     <main id="conteudoPrincipal">
-        <section action="#" id="formulario" method="get">
-            <fieldset id="nascimento">
-                <label for="idade">Ano de nascimento:</label>
-                <input type="number" name="idade" id="idade">
-            </fieldset>
-            <fieldset id="sexo">
-                <p>Sexo:</p>
-                <div id="op">
-                    <div id="opM">
-                        <input type="radio" name="sexo" id="mas" value="homem">
-                        <label for="mas">Masculino</label><!-- Masculino -->
-                    </div>
-                    <div id="opF">
-                        <input type="radio" name="sexo" id="fem" value="mulher">
-                        <label for="fem">Feminino</label><!-- Feminino -->
-                    </div>
-                </div>
-            </fieldset>
-            <button type="button" id="verificar"  onclick="verificar()">Verificar</button>
-            <p id="seNao">Preencha os dados acima<br> para ver o resultado!!</p>
-        </section>
+        <h2>horas</h2>
 
-        <section id="secImagem"> 
-             <!--Aqui vem a imagem  -->
+        <section id="secImagem">
+            
         </section>
-
     </main>
     <footer>&copy; GuilhermeHenrique</footer>
-    
+
     <script src="js/script-ex01.js"></script>
 </body>
 </html>
