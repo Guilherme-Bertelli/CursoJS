@@ -1,82 +1,21 @@
-function verificar() {
-    var textoP = document.querySelector('p#seNao')// Texto do parágrafo
-    var data = new Date() // Ano atual
-    var anoAtual = data.getFullYear()
-    var ano = document.querySelector('input#idade')// Idade
-    var anoEscolhido = Number(ano.value)
-    var idade = anoAtual - anoEscolhido
-    var sexoMouF = document.querySelector('input[name="sexo"]:checked')// Sexo
-    var sexos = sexoMouF.value
-    var imagem = document.querySelector('section#secImagem')// Imagem
-    var blocoPrincipal = document.querySelector //Main
-    ('main#conteudoPrincipal')
+function carregar() {
+    var imagem = document.querySelector('section#secImagem')
+    var data = new Date()
+    var hora = data.getHours()
+    hora = 1 //(para ver a mudança, retire esse comentário e altere o valor)
 
-    switch(sexos) { 
-        // Caso HOMEM
-        case "homem":
-            if(idade <= 14 && idade >= 1) { // Se tiver de 1 a 14 anos carrega a imagem da criança
-                imagem.style.display = "flex"
-                blocoPrincipal.style.height = "70vh"
-                imagem.style.backgroundImage = "url('imagens/menino.jpg')"
-                imagem.style.transition = ".2s"
-            }      
-            if(idade > 14 && idade < 45) { // Se tiver de 15 a 45 anos carrega a imagem de um jovem
-                imagem.style.display = "flex"
-                blocoPrincipal.style.height = "70vh"
-                imagem.style.backgroundImage = "url('imagens/h-jovem.jpg')"
-                imagem.style.transition = ".2s"
-            } 
-            if(idade > 45) { // Se tiver de 45 a 120 anos carrega a imagem de um idoso
-                imagem.style.display = "flex"
-                blocoPrincipal.style.height = "70vh"
-                imagem.style.backgroundImage = "url('imagens/idoso.jpg')"
-                imagem.style.transition = ".2s"
-            } 
-
-            if(idade < 120 && idade > 1) { // Se tiver de 1 a 120 anos carrega a mensagem da linha de baixo
-                textoP.innerHTML = `Detectamos que é ${sexos} com ${idade} anos`
-            } else { // Se não tiver de 1 a 120 carrega um alert pedindo para verificar os dados
-                imagem.style.display = "none"
-                blocoPrincipal.style.height = "40vh"
-                imagem.style.backgroundImage = "url('')"
-                imagem.style.transition = ".2s"
-                window.alert("Verifique os dados e tente novamente")
-                textoP.innerHTML = ``
-            }
-            break
-        // Caso HOMEM acaba aqui    
-
-        // Caso MULHER
-        case "mulher":
-            if(idade <= 14 && idade >= 1) { // Se tiver de 1 a 14 anos carrega a imagem da criança
-                imagem.style.display = "flex"
-                blocoPrincipal.style.height = "70vh"
-                imagem.style.backgroundImage = "url('imagens/menina.jpg')"
-                imagem.style.transition = ".2s"
-            }  
-            if(idade > 14 && idade < 45) { // Se tiver de 15 a 45 anos carrega a imagem de uma jovem
-                imagem.style.display = "flex"
-                blocoPrincipal.style.height = "70vh"
-                imagem.style.backgroundImage = "url('imagens/m-jovem.jpg')"
-                imagem.style.transition = ".2s"
-            } 
-            if(idade > 45) { // Se tiver de 45 a 120 anos carrega a imagem de uma idosa
-                imagem.style.display = "flex"
-                blocoPrincipal.style.height = "70vh"
-                imagem.style.backgroundImage = "url('imagens/idosa.jpg')"
-                imagem.style.transition = ".2s"
-            }
-            if(idade < 120 && idade > 1) { // Se tiver de 1 a 120 anos carrega a mensagem da linha de baixo
-                textoP.innerHTML = `Detectamos que é ${sexos} com ${idade} anos`
-            } else { // Se não tiver de 1 a 120 carrega um alert pedindo para verificar os dados
-                imagem.style.display = "none"
-                blocoPrincipal.style.height = "40vh"
-                imagem.style.backgroundImage = "url('')"
-                imagem.style.transition = ".2s"
-                window.alert("Verifique os dados e tente novamente")
-                textoP.innerHTML = ``
-            }
-            break 
-        // Caso MULHER acaba aqui    
+    document.querySelector('main>h2').innerHTML = `Agora são ${hora} horas` 
+    if(hora < 12) {
+        // BOM DIA!
+        imagem.style.backgroundImage = "url('imagens/img-dia.jpg')"
+        document.body.style.background = "#e2eff7"
+    } else if(hora >= 18) {
+        // BOA NOITE!
+        imagem.style.backgroundImage = "url('imagens/img-noite.jpg')"
+        document.body.style.background = "#237ab8"
+    } else {
+        // BOA TARDE!
+        imagem.style.backgroundImage = "url('imagens/img-tarde.jpg')"
+        document.body.style.background = "#d7e1d9"
     }
 }
