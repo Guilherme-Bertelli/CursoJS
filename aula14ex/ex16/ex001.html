@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+    <link rel="stylesheet" href="css/ex01.css">
+    <link rel="stylesheet" media="screen" href="css/ex01-media-query.css">
+</head>
+<body>
+    <h1>Vamos contar</h1>
+    <main id="conteudoPrincipal">
+        <div>
+            <label for="inicio">Inicio: </label>
+            <input type="number" name="inicio" id="inicio">
+        </div>
+        <div>
+            <label for="fim">Fim: </label>
+            <input type="number" name="fim" id="fim">
+        </div>
+        <div>
+            <label for="passo">Passo: </label>
+            <input type="number" name="passo" id="passo">
+        </div>
+        <button type="button" id="contar" onclick="contar()">Contar</button>
+        <p>Contando: </p>
+        <div id="saida">
+        </div>
+    </main>
+    <footer>&copy; GuilhermeHenrique</footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
