@@ -1,5 +1,6 @@
 let valores = [4,5,1,3,9,4]
-valores.sort
+valores.sort()
+valores[1] = 2
 
 console.log(valores)
 
@@ -14,6 +15,6 @@ console.log(valores)
 //     console.log(`A posição ${pos} tem o valor ${valores[pos]}`)
 // }
 
-for(let pos in valores){
+for(let pos in valores){// Forma simplificada pelo JS
     console.log(`A posição ${pos} tem o valor ${valores[pos]}`)
 }
