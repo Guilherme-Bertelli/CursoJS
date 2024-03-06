@@ -32,7 +32,35 @@ main#conteudoPrincipal {
 
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: center;
+    justify-content: center;  
+}
+
+#conteudoPrincipal section, div#caixa {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+div#caixa {
+    display: flex;
+    flex-direction: column;
+}
+
+input#num {
+    width: 100px;
+}
+
+input#gerar {
+    margin-top: 10px;
+    border: 0;
+    border-radius: 2px;
+    background-color: #d1d1d1;
+    padding: 5px;
+}
+
+input#gerar:hover {
+    background-color: #d9d9d9;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.211);
 }
 
 footer {

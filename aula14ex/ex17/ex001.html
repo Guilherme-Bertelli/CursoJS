@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idade</title>
-    <link rel="stylesheet" href="css/ex02.css">
-    <link rel="stylesheet" media="screen" href="css/ex02-media-query.css">
+    <link rel="stylesheet" href="css/ex01.css">
+    <link rel="stylesheet" media="screen" href="css/ex01-media-query.css">
 </head>
 <body>
-    <h1></h1>
+    <h1>Tabuada</h1>
     <main id="conteudoPrincipal">
-        <h2></h2>
-        <section id="secImagem"></section>
+    <div id="caixa">
+        <div>
+            <label for="num">Número:</label>
+            <input type="number" name="num" id="num">
+        </div>
+        <div>
+            <input type="button" value="Gerar tabuada" id="gerar">
+        </div>
+    </div>
+    <section>
+        <select name="tabuada" id="tab" size="10">
+            <option value="escolha" id="txt" disabled>Escolha um número acima</option>
+        </select>
+    </section>
     </main>
     <footer>&copy; GuilhermeHenrique</footer>
 
